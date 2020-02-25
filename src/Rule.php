@@ -30,11 +30,6 @@ class Rule{
     return $this;
   }
 
-  public function unique()
-  {
-    return $this;
-  }
-
   public function max($value)
   {
     $this->constraints[] = new Max($value);
