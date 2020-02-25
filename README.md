@@ -1,4 +1,4 @@
-# Welcome to StackEdit!
+# Welcome to PHPValidate!
 
 You have some input data to validate but you don't want to grab the huge libraries to validate them?
 Well here is the solution, PHPValidate is a very light libraries that allows you to validate simple data and enables you to create custom constraint at any time! Come on give it a try!
