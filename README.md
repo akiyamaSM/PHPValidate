@@ -5,7 +5,9 @@ Well here is the solution, PHPValidate is a very light libraries that allows you
 
 
 # Installation
-
+```bash
+composer require inani/phpvalidate 
+```
 # Usage
 
 Feed the **Validator** with the array data to verifies
