@@ -8,22 +8,24 @@ Well here is the solution, PHPValidate is a very light libraries that allows you
 
 # Usage
 
- 1. Feed the **Validator** with the array data to verifies
-
-        $validator = new Validator([  'name' => 'Inani El Houssain']);
-2. Build your Rules
-
-        // Only if required and without length greater or equal than 10 characters
-        $validator->addRule(( new Rule('name'))->required()->min(10));
-3. Check the rules
-
-        $bool = $validator->check();
-
-4. Get the errors list
-
-        // get the errors of the name field, all the fields if not specified
-        $validator->getErrors('name');
-
+Feed the **Validator** with the array data to verifies
+```php
+$validator = new Validator([  'name' => 'Inani El Houssain']);
+```
+Build your Rules
+```php
+// Only if required and without length greater or equal than 10 characters
+$validator->addRule(( new Rule('name'))->required()->min(10));
+```
+Check the rules
+```php
+$bool = $validator->check();
+```
+Get the errors list
+```php
+// get the errors of the name field, all the fields if not specified
+$validator->getErrors('name');
+```
 # Available rules
 
 
@@ -35,35 +37,38 @@ Well here is the solution, PHPValidate is a very light libraries that allows you
 | number | the input should be a numeric value |
 # Custom Constraints
 Every custom rule should extends the **CustomConstraint** Class and implements the two methods, for instance creating a rule that validates an email field:
+```php
 
-    use Inani\PHPValidate\CustomConstraint;
+<?php
+use Inani\PHPValidate\CustomConstraint;
 
-    class ShouldBeAnEmail extends CustomConstraint
-    {
-      /**
-       * Check if the field is Required
-       *
-       * @param null $value
-       * @return bool
-       */
-      public function isValid($value = null)
-      {
-        if(!filter_var($value, FILTER_VALIDATE_EMAIL)){
+class ShouldBeAnEmail extends CustomConstraint
+{
+  /**
+   * Check if the field is Required
+   *
+   * @param null $value
+   * @return bool
+   */
+  public function isValid($value = null)
+  {
+    if(!filter_var($value, FILTER_VALIDATE_EMAIL)){
 
-          $this->errorFound();
+      $this->errorFound();
 
-          return false;
-        }
-
-        return true;
-      }
-
-      public function getError()
-      {
-        return "This is not a valid email";
-      }
+      return false;
     }
 
-And its usage is as simple as injecting the Rule in the rules array like this :
+    return true;
+  }
 
-        $validator->addRule(( new Rule('email'))->required()->inject(new ShouldBeAnEmail));
+  public function getError()
+  {
+    return "This is not a valid email";
+  }
+}
+```
+And its usage is as simple as injecting the Rule in the rules array like this :
+```php
+$validator->addRule(( new Rule('email'))->required()->inject(new ShouldBeAnEmail));
+```
