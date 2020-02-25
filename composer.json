@@ -1,0 +1,23 @@
+{
+    "name": "inani/phpvalidate",
+    "description": "The lightest way to validate your inputs.",
+    "keywords": ["PHP", "Validation"],
+    "license": "MIT",
+    "version": "2.0.0",
+    "support": {
+        "issues": "https://github.com/akiyamaSM/PHPValidate/issues",
+        "source": "https://github.com/akiyamaSM/PHPValidate"
+    },
+    "authors": [
+        {
+            "name": "El Houssain INANI",
+            "email": "inanielhoussain@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Inani\\PHPValidate\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
