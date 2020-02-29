@@ -1,7 +1,7 @@
 <?php
 namespace Inani\PHPValidate\Rules;
 
-class Number extends AbstractRule implements Checkable
+class Required extends AbstractRule implements Checkable
 {
 
   /**
@@ -12,7 +12,7 @@ class Number extends AbstractRule implements Checkable
    */
     public function isValid($value = null)
     {
-        if (is_numeric($value)) {
+        if ($value) {
             return true;
         }
 
@@ -23,6 +23,6 @@ class Number extends AbstractRule implements Checkable
 
     public function getError()
     {
-        return "this field must be numeric";
+        return "This field must be required";
     }
 }

@@ -1,36 +1,34 @@
 <?php
-
-
 namespace Inani\PHPValidate\Rules;
-
 
 class Max extends AbstractRule implements Checkable
 {
-  protected $max;
+    protected $max;
 
-  public  function __construct($max){
-    $this->max = $max;
-  }
-  /**
-   * Check if the field is Required
-   *
-   * @param null $value
-   * @return bool
-   */
-  function isValid($value = null)
-  {
-    if(strlen($value) > $this->max){
-      $this->errorFound();
-      return false;
+    public function __construct($max)
+    {
+        $this->max = $max;
     }
-    return true;
-  }
+    /**
+     * Check if the field is Required
+     *
+     * @param null $value
+     * @return bool
+     */
+    public function isValid($value = null)
+    {
+        if (strlen($value) > $this->max) {
+            $this->errorFound();
+            return false;
+        }
+        return true;
+    }
 
-  /**
-   * The message error
-   */
-  function getError()
-  {
-    return "this field must be less than {$this->max}";
-  }
+    /**
+     * The message error
+     */
+    public function getError()
+    {
+        return "this field must be less than {$this->max}";
+    }
 }
