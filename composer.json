@@ -13,9 +13,17 @@
             "email": "inanielhoussain@gmail.com"
         }
     ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
     "autoload": {
         "psr-4": {
             "Inani\\PHPValidate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4" : {
+            "Inani\\PHPValidate\\Tests\\" : "tests/"
         }
     }
 }
